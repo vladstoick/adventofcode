@@ -67,6 +67,10 @@
         "__string": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "unordered_set": "cpp",
+        "charconv": "cpp",
+        "set": "cpp",
+        "__tree": "cpp"
     }
 }
