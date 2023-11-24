@@ -73,6 +73,7 @@
         "set": "cpp",
         "__tree": "cpp",
         "memory_resource": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "span": "cpp"
     }
 }
