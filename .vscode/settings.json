@@ -74,6 +74,7 @@
         "__tree": "cpp",
         "memory_resource": "cpp",
         "cassert": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "regex": "cpp"
     }
 }

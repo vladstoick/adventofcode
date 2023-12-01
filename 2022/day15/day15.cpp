@@ -130,7 +130,6 @@ int main()
         }
     }
 
-    std::cout << "Starting calculation of part 1 " << std::endl;
     std::set<int> pointsElimated;
     for (auto range : rangesEliminated[ROW_PART_1].ranges)
     {
@@ -146,11 +145,6 @@ int main()
 
     for (int row = MIN_ROW; row <= MAX_ROW; row++)
     {
-        if (row % 10000 == 0)
-        {
-            std::cout << row << std::endl;
-        }
-
         int l = 0;
 
         for (auto range : rangesEliminated[row].ranges)
@@ -161,6 +155,7 @@ int main()
                 {
                     long result = (long)j * 4000000 + row;
                     std::cout << "Part 2 at row: " << row << " and col: " << j << " with result " << result << std::endl;
+                    return 0;
                 }
             }
 
