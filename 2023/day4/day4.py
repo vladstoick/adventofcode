@@ -4,7 +4,6 @@ import regex as re
 p = Path(__file__).with_name("input.txt")
 file = open(p)
 
-
 matchedNumbersPerCard = []
 
 for line in file.readlines():
