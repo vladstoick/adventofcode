@@ -85,5 +85,4 @@ part1Ranges = [[i, i] for i in seeds]
 print("Part 1", solve(part1Ranges))
 
 part2Ranges = ([seeds[i*2], seeds[i*2] + seeds[i*2+1] - 1] for i in range(int(len(seeds) / 2)))
-part2Ranges = sorted(part2Ranges)
 print("Part 2", solve(part2Ranges))
