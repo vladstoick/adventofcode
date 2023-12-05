@@ -1,28 +1,13 @@
 from pathlib import Path
 import regex as re
 
-def findInRange(range, val):
-    newValStart = range[0]
-    rangeStart = range[1]
-    rangeEnd = range[1] + range[2] - 1
-    if val >= rangeStart and val <=rangeEnd:
-        return newValStart + val - rangeStart
-    else:
-        return None
-    
-def print_debug(levels):
-    itemsCount = len(levels[0])
-    levelsCount = len(levels)
-    for itemIdx in range(itemsCount):
-        vals = [str(levels[levelIdx][itemIdx]) for levelIdx in range(levelsCount)]
-        print(" -> ".join(vals))
-            
-
 p = Path(__file__).with_name("input.txt")
 file = open(p)
 
 lines = file.readlines()
 lines = list(filter(lambda line: line != "\n", lines))
+
+# Parsing
 
 seeds = [int(numStr) for numStr in lines[0].split(":")[1].strip().split(" ")]
 
@@ -41,12 +26,12 @@ while(i < len(lines)):
 
     rangesPerTransform.append(sorted(ranges))
 
-# Part 1
+# Solving
 
 def is_range_valid(range):
     return range[0] <= range[1]
 
-def calculate_intersection(range1, range2):
+def calculate_intersection(range1, range2): # returns [leftRange, intersectionRange, rightRange]
     mergedRange = [max(range1[0], range2[0]), min(range1[1], range2[1])]
     return mergedRange if is_range_valid(mergedRange) else None
 
