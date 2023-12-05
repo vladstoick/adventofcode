@@ -31,7 +31,7 @@ while(i < len(lines)):
 def is_range_valid(range):
     return range[0] <= range[1]
 
-def calculate_intersection(range1, range2): # returns [leftRange, intersectionRange, rightRange]
+def calculate_intersection(range1, range2):
     mergedRange = [max(range1[0], range2[0]), min(range1[1], range2[1])]
     return mergedRange if is_range_valid(mergedRange) else None
 
