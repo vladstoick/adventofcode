@@ -1,3 +1,5 @@
+import cmath
+import math
 from pathlib import Path
 import regex as re
 
@@ -9,13 +11,15 @@ lines = file.readlines()
 def solve(pairs):
     product = 1
     for (time, distance) in pairs:
-        options = 0
+        a = -1
+        b = time
+        c = -distance
+        d = (b**2) - (4*a*c)
 
-        for x in range(time + 1):
-            works = (time - x) * x > distance
-            options += 1 if works else 0
-        
-        product *= options
+        sol1 = math.ceil((-b+math.sqrt(d))/(2*a)+0.00001)
+        sol2 = math.floor((-b-math.sqrt(d))/(2*a)-0.0001)
+
+        product *= sol2 - sol1 + 1
 
     return product
 
