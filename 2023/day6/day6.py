@@ -23,7 +23,6 @@ def solve(pairs):
 
     return product
 
-
 times = [int(x) for x in lines[0].split()[1:]]
 distances = [int(x) for x in lines[1].split()[1:]]
 
