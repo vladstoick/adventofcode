@@ -29,7 +29,8 @@ def calculate(start, part2):
 
 print("Part 1", calculate('AAA', False))
 
-# For part2, somehow once you reach a Z, it i
+# For part2, somehow once you reach a Z, then it takes the same amount of time
+# to reach the node again A->Z= Z->Z
 arr = []
 for item in paths.keys():
     if item[-1] == 'A':
