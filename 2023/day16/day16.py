@@ -8,15 +8,6 @@ map = [[c for c in line] for line in file.read().splitlines()]
 N = len(map)
 M = len(map[0])
 
-
-def print_debug(energized):
-    print()
-    for row in range(N):
-        for col in range(M):
-            print(("#" if energized[row][col] else '.'), end="")
-        print("")
-
-
 # i, j
 transform = {
     ".": {

@@ -11,15 +11,6 @@ M = len(input[0])
 part1 = 0
 
 
-def print_debug_matrix(matrix):
-    print("")
-    for row in range(N):
-        for col in range(M):
-            print(matrix[row][col], end="")
-        print("")
-    print("")
-
-
 def calculate_weight(matrix):
     result = 0
     for row in range(N):
