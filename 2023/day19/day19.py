@@ -44,6 +44,8 @@ while i < len(lines):
 
 valid_ranges_for_approve = []
 
+# Calculate all valid ranges for landing on A (we can use the same for part1)
+
 
 def is_range_valid(range):
     for val in range.values():
