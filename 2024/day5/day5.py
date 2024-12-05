@@ -18,22 +18,6 @@ for line in file.readlines():
         updates.append(list(map(int, line.split(","))))
 
 
-def part1(update):
-    so_far = set()
-    works = True
-
-    for page in update:
-        for dep in deps_orig[page]:
-            if dep in so_far:
-                works = False
-                break
-        if not works:
-            break
-        so_far.add(page)
-
-    return update[len(update) // 2] if works else 0
-
-
 def create_copy(update):
     deps = defaultdict(lambda: set())
     deps_reversed = defaultdict(lambda: set())
@@ -48,30 +32,18 @@ def create_copy(update):
     return (deps, deps_reversed)
 
 
-def part2(update):
-    if part1(update):
-        return 0
-
+def solve(update):
     (deps, deps_reversed) = create_copy(update)
-
-    def has_dep_in_update(page):
-        return len(deps_reversed[page]) > 0
-
-    def order_by_pos_in_update(to_add):
-        return sorted(to_add, key=lambda x: update.index(x))
 
     output = []
     q = queue.Queue()
     v = set()
 
     def add_without_deps():
-        to_add = []
         for page in update:
-            if not has_dep_in_update(page) and page not in v:
-                to_add.append(page)
+            if len(deps_reversed[page]) == 0 and page not in v:
+                q.put(page)
                 v.add(page)
-        to_add = order_by_pos_in_update(to_add)
-        [q.put(x) for x in to_add]
 
     add_without_deps()
 
@@ -86,8 +58,18 @@ def part2(update):
 
         q.task_done()
 
-    return output[len(output) // 2]
+    if output != update:
+        return (0, output[len(output) // 2])
+    else:
+        return (output[len(output) // 2], 0)
 
 
-print("Part 1: ", sum(map(part1, updates)))
-print("Part 2: ", sum(map(part2, updates)))
+part1 = 0
+part2 = 0
+for update in updates:
+    (p1, p2) = solve(update)
+    part1 += p1
+    part2 += p2
+
+print("Part 1: ", part1)
+print("part 2: ", part2)
