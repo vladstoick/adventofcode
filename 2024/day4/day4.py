@@ -1,7 +1,5 @@
 from collections import defaultdict
 from pathlib import Path
-import regex as re
-
 
 p = Path(__file__).with_name("input.txt")
 file = open(p)
