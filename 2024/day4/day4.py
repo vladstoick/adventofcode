@@ -1,4 +1,3 @@
-from collections import defaultdict
 from pathlib import Path
 
 p = Path(__file__).with_name("input.txt")
@@ -8,16 +7,11 @@ lines = [line.strip() for line in file.readlines()]
 
 di = [-1, -1, 0, 1, 1, 1, 0, -1]
 dj = [0, 1, 1, 1, 0, -1, -1, -1]
-# di = [0, 1, 1]
-# dj = [1, 1, 0]
 
 WORD = "XMAS"
-# WORD_REVERSED = "SAMX"
 
 rows = len(lines)
 cols = len(lines[0])
-
-print("Rows: ", rows, " Cols: ", cols)
 
 
 def count(i, j, distance, d, word):

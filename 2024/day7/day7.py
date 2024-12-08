@@ -1,4 +1,3 @@
-from collections import defaultdict
 from pathlib import Path
 
 file = open(Path(__file__).with_name("input.txt"))
