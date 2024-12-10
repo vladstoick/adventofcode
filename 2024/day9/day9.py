@@ -74,6 +74,7 @@ def calculate(part2):
 
             input.insert(end + 1, (-to_add, -1))
             end += 1
+
             while end < len(input) and input[end - 1][0] < 0 and input[end][0] < 0:
                 input[end - 1] = modify(input[end - 1], input[end][0])
                 del input[end]
@@ -88,6 +89,8 @@ def calculate(part2):
             multiplied_sum = positions_sum * id
             result += multiplied_sum
         id_so_far += abs(c)
+
+    print_input(input)
 
     return result
 
