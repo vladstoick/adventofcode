@@ -1,8 +1,6 @@
 from pathlib import Path
 import re
 
-import numpy as np
-
 file = open(Path(__file__).with_name("input.txt"))
 lines = file.readlines()
 
