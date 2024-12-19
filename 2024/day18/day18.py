@@ -1,7 +1,5 @@
-import math
 from pathlib import Path
 import queue
-from collections import defaultdict
 
 file = open(Path(__file__).with_name("input.txt"))
 
