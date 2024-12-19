@@ -18,7 +18,7 @@ def possibilities(pattern, towels):
         start = pattern[idx:]
 
         for towel in towels:
-            if start.startswith(towel) and len(pattern[idx:]) >= len(towel):
+            if start.startswith(towel):
                 possibile[idx + len(towel)] += possibile[idx]
 
     return possibile[len(pattern)]
