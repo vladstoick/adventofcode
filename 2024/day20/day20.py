@@ -58,7 +58,7 @@ def is_point_valid(i, j):
 
 def check_cheat_from_point_v2(point, max_cheat):
     orig_distance = distance[end] - distance[point]
-    cheats = []
+    cheats = 0
     for di in range(-max_cheat, max_cheat + 1):
         dj_allowed = max_cheat - abs(di)
         for dj in range(-dj_allowed, dj_allowed + 1):
@@ -72,26 +72,17 @@ def check_cheat_from_point_v2(point, max_cheat):
                 new_distance = distance[end] - distance[(ni, nj)]
                 saved = orig_distance - new_distance - cheat_used
 
-                if saved > 0:
-                    cheats += [saved]
+                if saved >= 100:
+                    cheats += 1
 
     return cheats
 
 
 def calculate(max_cheats):
-    cheats_count = defaultdict(lambda: 0)
+    cheats_count = 0
     for point in distance.keys():
-        cheats = check_cheat_from_point_v2(point, max_cheats)
-
-        for cheat in cheats:
-            cheats_count[cheat] += 1
-
-    result = 0
-    for cheat in sorted(list(cheats_count.keys())):
-        if cheat >= 100:
-            result += cheats_count[cheat]
-
-    return result
+        cheats_count += check_cheat_from_point_v2(point, max_cheats)
+    return cheats_count
 
 
 print("Part 1", calculate(2))
