@@ -1,4 +1,3 @@
-import math
 from pathlib import Path
 from itertools import permutations
 from functools import cache
