@@ -29,14 +29,13 @@ def is_connected(node, existing_set):
 def expand(existing_set):
     max_set = existing_set
 
-    for key in existing_set:
-        for new_key in connections[key]:
-            if new_key not in existing_set:
-                if is_connected(new_key, existing_set):
-                    new_set = frozenset([new_key] + list(existing_set))
-                    new_set_expanded = expand(new_set)
-                    if len(new_set_expanded) > len(max_set):
-                        max_set = new_set_expanded
+    for new_key in connections[list(existing_set)[-1]]:
+        if new_key not in existing_set:
+            if is_connected(new_key, existing_set):
+                new_set = frozenset([new_key] + list(existing_set))
+                new_set_expanded = expand(new_set)
+                if len(new_set_expanded) > len(max_set):
+                    max_set = new_set_expanded
 
     return max_set
 
