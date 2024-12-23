@@ -20,7 +20,6 @@ for key in connections.keys():
 print("Part 1", len(part1_options))
 
 
-@cache
 def is_connected(node, existing_set):
     return existing_set.issubset(connections[node])
 
